@@ -11,7 +11,8 @@ export default class Server {
 
     private config(app: Application): void {
         const corsOptions: CorsOptions = {
-            origin: "http://localhost:8081"
+            origin: ["http://localhost:8081", "http://localhost:5173"],
+            methods: ['GET', 'POST', 'PUT', 'DELETE'],
         };
 
         app.use(cors(corsOptions));

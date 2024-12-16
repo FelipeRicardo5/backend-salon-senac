@@ -38,6 +38,6 @@ __decorate([
     __metadata("design:type", String)
 ], Cliente.prototype, "email", void 0);
 exports.Cliente = Cliente = __decorate([
-    (0, typeorm_1.Entity)("clientes"),
+    (0, typeorm_1.Entity)("tbl_cliente"),
     __metadata("design:paramtypes", [String, String, String, Object])
 ], Cliente);

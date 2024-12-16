@@ -110,9 +110,11 @@ class ClienteRepository {
     deleteAll() {
         return __awaiter(this, void 0, void 0, function* () {
             try {
-                const result = yield this.clienteRepository.query("SELECT COUNT(cpf) FROM clientes;");
-                yield this.clienteRepository.query("DELETE FROM clientes;");
-                return result[0]['COUNT(cpf)'];
+                // Contar quantos clientes existem antes de deletar
+                const count = yield this.clienteRepository.count(); // Contagem de clientes na tabela
+                // Deletar todos os clientes
+                yield this.clienteRepository.clear(); // Limpa a tabela (deleta todos os registros)
+                return count; // Retorna o número de clientes que foram deletados
             }
             catch (error) {
                 throw new Error("Falha ao deletar todos os clientes!");
